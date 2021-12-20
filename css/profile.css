@@ -1,0 +1,256 @@
+/* 
+=================================
+PROFILE | PAGE
+=================================
+*/
+.profile{
+  max-width: 100rem;
+  margin: 5rem auto;
+  padding: 2rem;
+  background-color: var(--insight-2);
+  box-shadow: var(--default-shadow);
+  position: relative;
+}
+
+.profile .edit_btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  margin: 1rem;
+  color: var(--grey-light);
+}
+
+.profile .title{
+  font-size: 2.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: var(--primay-color);
+  text-transform: uppercase;
+  margin:2rem 0 ;
+}
+
+.profile .personal-info{
+  display: flex;
+  justify-self: center;
+}
+
+.profile .personal-info > *{
+  /* background-color: red; */
+  margin: 1rem;
+}
+
+
+.profile .personal-info .profile-image{
+  flex: 0 0 20%;
+  min-width: 20rem;
+  width: 20rem;
+  min-height: 20rem;
+  height:20rem;
+  background-color:var(--color-6);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile .personal-info .profile-image > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile .personal-info .profile-content{
+  flex: 0 0 50%;
+}
+
+.profile .personal-info .profile-content .user_name {
+  font-size: 1.9rem;
+}
+
+.profile .personal-info .profile-content .profile_list{
+  list-style-type: none;
+  font-size: 1.5rem;
+}
+
+.profile .personal-info .profile-content .profile_list li > h6{
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--grey-md);
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+.profile .personal-info .profile-content .profile_list li > p,
+.profile .personal-info .profile-content .profile_list li > div{
+  color: var(--grey-dark);
+  font-size: 1.4;
+  display: inline-block;
+}
+
+/* badge */
+.profile .personal-info .trust_ok{
+  color:var(--success-color);
+  font-size: 1.3rem;
+}
+
+.profile .personal-info .fa-mars{
+  color:var(--link-color);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.profile .personal-info .fa-venus{
+  color: palevioletred;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* poster */
+.profile .published-posts{
+  display: grid;
+  grid-template-columns: repeat(3,30rem);
+  /* background-color: red; */
+  gap: 2rem;
+  justify-content: center;
+}
+
+.profile .published-posts .boxes{
+  width: 30rem;
+  height: 40rem;
+  box-shadow: var(--default-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile .published-posts .boxes .poster-img{
+  width: 100%;
+  height: 100%;
+}
+
+.profile .published-posts .boxes .poster-img > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transform: scale(1);
+  transition: transform 1s ease;
+
+
+}
+
+/* poster content */
+.profile .published-posts .boxes .poster-content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color .5s ease;
+}
+.profile .published-posts .boxes .poster-content > h4:first-child,
+.profile .published-posts .boxes .poster-content > h4:last-child{
+  opacity: 0;
+  font-size: 1rem;
+  color: var(--color-1);
+  text-align: center;
+  padding: 1rem;
+  transition: none;
+}
+
+
+.profile .published-posts .boxes .poster-content > h4:last-child{
+  font-size: 1.5rem;
+}
+
+.profile .published-posts .boxes:hover .poster-content > h4:first-child{
+  transform: translateY(3rem);
+  opacity: 1;
+  transition: all .5s ease .3s;
+}
+
+.profile .published-posts .boxes:hover .poster-content > h4:last-child{
+  transform: translateY(-3rem);
+  opacity: 1;
+  margin: 1rem;
+  transition: all .5s ease .3s;
+}
+
+
+.profile .published-posts .boxes:hover .poster-content{
+  background-color: rgba(0,0,0,.6);
+  transform: scale(1.1);
+}
+
+.profile .published-posts .boxes:hover .poster-img > img{
+  transform: scale(1.2);
+}
+
+.profile .published-posts .notification >a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+
+/* 
+=================================
+PROFILE | EDIT FORM
+=================================
+*/
+
+/* Input & label Style */
+.profile .edit_user .control{
+  width: 40rem;
+  margin: 0.5rem;
+}
+
+.profile .edit_user .control label{
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.profile .edit_user .control input,
+.profile .edit_user .control textarea,
+.profile .edit_user .control select {
+  width: 100%;
+  height: 3rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  outline: none;
+  border: 0.1rem solid var(--grey-light);
+  font-family: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: var(--color-4);
+}
+
+.profile .edit_user .control input:focus,
+.profile .edit_user .control textarea:focus,
+.profile .edit_user .control select:focus {
+  border: 0.1rem solid var(--primay-color);
+}
+
+.profile .edit_user .control input[type="file"] {
+  border: none;
+}
+
+.profile .edit_user .control textarea {
+  height: 20rem;
+  resize: none;
+}
+/* btn form */
+.btn_submit {
+  background-color: var(--primay-color);
+  color: var(--light-color-1);
+  transition: opacity 0.5s;
+}
+
+/* disable backg */
+.profile .edit_user .control .edit_email{
+  background-color: rgba(0,0,0,.2);
+}
+

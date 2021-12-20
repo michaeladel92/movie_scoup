@@ -1,0 +1,180 @@
+/* 
+=================================
+LOGIN | REGISTER
+=================================
+*/
+.credentials {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.credentials .options {
+  display: flex;
+}
+
+/* heading [login | register] */
+.credentials .options h2 {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+
+.credentials .options h2.active {
+  cursor: unset;
+  color: var(--primay-color);
+}
+/* line */
+.credentials .options > span {
+  height: 5rem;
+  width: 0.5rem;
+  background-color: var(--color-6);
+}
+/* Swtich [login | Register] */
+.credentials .registeration_form,
+.credentials .login_form {
+  display: none;
+}
+
+.credentials .registeration_form.active,
+.credentials .login_form.active {
+  display: block;
+}
+
+/* Input & label Style */
+.credentials .registeration_form .control,
+.credentials .login_form .control {
+  width: 40rem;
+  margin: 0.5rem;
+}
+
+.credentials .registeration_form .control label,
+.credentials .login_form .control label {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.credentials .registeration_form .control label[for="user_name"]::after,
+.credentials .registeration_form .control label[for="email"]::after,
+.credentials .registeration_form .control label[for="password"]::after,
+.credentials .registeration_form .control label[for="con_password"]::after,
+.credentials .registeration_form .control label[for="gender"]::after {
+  content: " *";
+  color: var(--danger-color);
+  font-weight: bold;
+}
+
+.credentials .registeration_form .control input,
+.credentials .login_form .control input,
+.credentials .registeration_form .control textarea,
+.credentials .registeration_form .control select {
+  width: 100%;
+  height: 3rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  outline: none;
+  border: 0.1rem solid var(--grey-light);
+  font-family: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: var(--color-4);
+}
+
+.credentials .registeration_form .control input:focus,
+.credentials .login_form .control input:focus,
+.credentials .registeration_form .control textarea:focus,
+.credentials .registeration_form .control select:focus {
+  border: 0.1rem solid var(--primay-color);
+}
+
+.credentials .registeration_form .control input[type="file"] {
+  border: none;
+}
+
+.credentials .registeration_form .control textarea {
+  height: 20rem;
+  resize: none;
+}
+/* btn form */
+.btn_submit {
+  background-color: var(--primay-color);
+  color: var(--light-color-1);
+  transition: opacity 0.5s;
+}
+
+.btn_submit:hover {
+  opacity: 0.9;
+}
+
+/* forget pass link */
+.forget-pass {
+  display: block;
+  font-size: 1.5rem;
+}
+/* Notification Msg */
+
+.credentials .registeration_form .control input.success,
+.credentials .registeration_form .control textarea.success,
+.credentials .registeration_form .control select.success {
+  border: 0.1rem solid var(--success-color);
+}
+
+.credentials .registeration_form .control input.error,
+.credentials .registeration_form .control textarea.error,
+.credentials .registeration_form .control select.error {
+  border: 0.1rem solid var(--danger-color);
+}
+
+.message {
+  visibility: hidden;
+  font-size: 1.2rem;
+  color: var(--danger-color);
+}
+
+.notifications {
+  visibility: visible;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  transform: translateY(100%);
+  background: var(--primay-color);
+  width: auto;
+  height: 5rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem 0 0;
+  font-size: 1.4rem;
+  color: var(--color-1);
+  box-shadow: var(--default-shadow);
+}
+
+.notifications.show {
+  transform: translateY(0);
+}
+
+.notifications.show.success {
+  transform: translateY(0);
+  background: var(--success-color);
+  transition: transform 0.5s;
+}
+
+.notifications.show.error {
+  transform: translateY(0);
+  background: var(--danger-color);
+  transition: transform 0.5s;
+}
+
+/* max length textarea */
+.max-length {
+  font-size: 1.2rem;
+}
+.max-length.error {
+  color: var(--danger-color);
+}

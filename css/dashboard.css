@@ -1,0 +1,695 @@
+/* 
+=================================
+DASHBOARD
+=================================
+*/
+.dashboard-container{ 
+  position: relative;/*used for loading purpose*/
+}
+
+.dashboard .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard .container .side-menu {
+  position: fixed;
+  inset: 0;
+  width: 20vw;
+  height: 100vh;
+  background-color: var(--primay-color);
+}
+/* logo */
+.dashboard .container .side-menu .logo-container {
+  width: 8rem;
+  height: 8rem;
+  margin-left: 2rem;
+  position: relative;
+}
+
+.dashboard .container .side-menu .logo-container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dashboard .container .side-menu .logo-container figcaption .logo-text {
+  font-size: 3rem;
+  position: absolute;
+  top: 54%;
+  left: 35%;
+  width: auto;
+  white-space: nowrap;
+  font-family: "Ephesis", cursive;
+  color: #fff;
+  letter-spacing: 0.1rem;
+  line-height: 1;
+  color: var(--color-6);
+}
+
+.dashboard
+  .container
+  .side-menu
+  .logo-container
+  figcaption
+  .logo-text::first-letter {
+  font-size: 4rem;
+}
+/* side list */
+.dashboard .container .side-menu .side-list {
+  position: fixed;
+  inset: 0;
+  top: 100px;
+  width: 20vw;
+  font-size: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+.dashboard .container .side-menu .side-list .profile-pic {
+  min-height: 15rem;
+  height: 15rem;
+  min-width: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  background-color: var(--color-6);
+  box-shadow: 0 0.5px 5px 0.5px var(--color-1);
+  overflow: hidden;
+}
+
+.dashboard .container .side-menu .side-list .profile-pic > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dashboard .container .side-menu .side-list .list {
+  list-style-type: none;
+  margin-top: 4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard .container .side-menu .side-list .list > li {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.dashboard .container .side-menu .side-list .list > li > a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-3);
+  width: 100%;
+  text-align: center;
+  transition: color 0.3s;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dashboard .container .side-menu .side-list .list > li > a:hover,
+.dashboard .container .side-menu .side-list .list > li > a:active,
+.dashboard .container .side-menu .side-list .list > li > a.active {
+  color: var(--color-1);
+}
+
+/* table of content */
+.dashboard .container .table-of-content {
+  flex: 0 0 80%;
+  padding: 3rem;
+  margin-left: auto;
+  /* position: relative; */
+}
+
+.dashboard .container .table-of-content .title {
+  font-size: 4rem;
+  color: var(--primay-color);
+  text-align: center;
+  text-transform: uppercase;
+}
+.dashboard .container .table-of-content .sub-title{
+  font-size: 2rem;
+  color: var(--grey-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 
+=================================
+TABELS
+=================================
+*/
+.table {
+  background-color: var(--grey-dark);
+  font-size: 1.7rem;
+  margin: auto;
+  text-align: center;
+  box-shadow: var(--default-shadow);
+  opacity:0;
+  transition: opacity .5s;
+}
+.table.show{
+  opacity:1;
+}
+
+.table > thead > tr,
+.table tbody > tr {
+  background-color: var(--color-1);
+}
+
+.table thead > tr th {
+  font-weight: bold;
+  text-transform: uppercase;
+  min-width: 5rem;
+  padding: 0.5rem 1rem;
+}
+
+.table tbody tr td {
+  padding: 0.5rem 1rem;
+}
+
+.table tbody tr td > a,
+.table tbody tr td > a:hover,
+.table tbody tr td > a:active,
+.table tbody tr td > a:visited {
+  color: var(--link-color);
+}
+
+/* search input */
+.search_query {
+  margin: 0.5rem auto;
+  text-align: center;
+  width: 28rem;
+  position: relative;
+}
+
+.search_query > input {
+  width: 100%;
+  padding: 0.3rem;
+  outline: none;
+  border: 0.1rem solid var(--grey-dark);
+  font-family: inherit;
+  color: var(--grey-dark);
+  text-transform: none;
+  font-size: 1.7rem;
+  opacity: 0;
+  visibility: hidden;
+}
+.search_query > input.show,
+.search_query > i.show{
+  opacity: 1;
+  visibility: visible;
+  transition: all .4s;
+}
+
+.search_query > i {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: var(--grey-light);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.search_query .add_btn {
+  position: absolute;
+  top: -30%;
+  right: 0;
+  transform: translateX(110%);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  background-color: var(--primay-color);
+  color: var(--color-1);
+}
+
+/* popup */
+.popup {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -100;
+  opacity: 0;
+}
+
+.popup.show {
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.popup .popup-container {
+  background-color: var(--primay-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  color: var(--color-1);
+  position: relative;
+}
+
+.popup .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  font-size: 1.7rem;
+  color: var(--color-1);
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin: 0.5rem;
+  transition: color 0.4s;
+}
+
+.popup .close:hover {
+  color: var(--color-3);
+}
+
+.popup .popup-container > h3 {
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: var(--color-6);
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
+
+.popup .popup-container > form > input[type="text"] {
+  width: 25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  outline: none;
+  border: 1px solid var(--grey-dark);
+  text-transform: none;
+  color: var(--grey-dark);
+}
+
+.popup .popup-container > form > input[type="submit"] {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--primay-color);
+  background-color: var(--color-6);
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+.popup .popup-container .option_yes,
+.popup .popup-container .option_no {
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.3rem 1rem;
+  font-size: 1.5rem;
+  background-color: var(--color-6);
+  outline: none;
+  border: none;
+  color: var(--primay-color);
+  font-weight: 800;
+}
+
+.popup .popup-container .option_no {
+  margin-left: 2rem;
+  background-color: var(--danger-color);
+}
+
+/* notice */
+.dashboard_Notice{
+  text-align: center;
+  font-size: 2.5rem;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.dashboard_Notice.show{
+  visibility: visible;
+  opacity: 1;
+  transition: all .4s;
+}
+
+.dashboard_Notice > h3{
+  background-color: var(--color-8);
+  border-radius: 4rem;
+  width: 50rem;
+  padding: 2rem;
+  margin: auto;
+  line-height:1;
+  color:var(--primay-color);
+}
+
+/* 
+=================================
+ADD - DASHBOARD
+=================================
+*/
+
+.dashboard .add_movie .form-container,
+.dashboard .edit_movie .form-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+}
+
+.dashboard .add_movie .control:first-of-type,
+.dashboard .add_movie .control:nth-of-type(2),
+.dashboard .add_movie .control:nth-of-type(3),
+.dashboard .add_movie .control:nth-of-type(4),
+.dashboard .edit_movie .control:first-of-type,
+.dashboard .edit_movie .control:nth-of-type(2),
+.dashboard .edit_movie .control:nth-of-type(3),
+.dashboard .edit_movie .control:nth-of-type(4){
+  width: 45%;
+  margin: .5rem;
+}
+
+.dashboard .add_movie .control:nth-of-type(5),
+.dashboard .edit_movie .control:nth-of-type(5){
+  width: 90%;
+}
+
+.dashboard .add_movie .control:nth-of-type(6),
+.dashboard .edit_movie .control:nth-of-type(6){
+  width: 90%;
+}
+
+.dashboard .add_movie .control label,
+.dashboard .edit_movie .control label{
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  margin-top: .5rem;
+}
+
+.dashboard .add_movie .control  input[type='text'],
+.dashboard .add_movie .control  select,
+.dashboard .add_movie .control  textarea,
+.dashboard .edit_movie .control  input[type='text'],
+.dashboard .edit_movie .control  select,
+.dashboard .edit_movie .control  textarea{
+  width: 30rem;
+  height:3rem;
+  outline: none;
+  border: 1px solid var(--grey-light);
+  color: var(--grey-dark);
+  background-color: var(--color-4);
+  text-transform: none;
+  margin: .5rem;
+  padding: 0 1rem;
+  border-radius: 1.7rem;
+  font-family: inherit;
+}
+
+.dashboard .add_movie .control  input[type='text']:focus,
+.dashboard .add_movie .control  select:focus,
+.dashboard .add_movie .control  textarea:focus,
+.dashboard .edit_movie .control  input[type='text']:focus,
+.dashboard .edit_movie .control  select:focus,
+.dashboard .edit_movie .control  textarea:focus{
+  border: 1px solid var(--primay-color);
+}
+
+.dashboard .add_movie .control  textarea,
+.dashboard .edit_movie .control  textarea{
+  resize: none;
+  width: 100%;
+  height: 40rem;
+  padding: 1rem;
+}
+
+.dashboard .add_movie .control  textarea label,
+.dashboard .edit_movie .control  textarea label{
+  text-align: left;
+  background-color: pink;
+}
+
+.dashboard .add_movie .btn_add,
+.dashboard .edit_movie .btn_edit{
+  background-color: var(--primay-color);
+  color:var(--color-1)
+}
+/* 
+=================================
+Edit - DASHBOARD
+=================================
+*/
+
+/* .dashboard .edit_movie .form-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+} */
+
+/* .dashboard .edit_movie .control:first-of-type,
+.dashboard .edit_movie .control:nth-of-type(2),
+.dashboard .edit_movie .control:nth-of-type(3),
+.dashboard .edit_movie .control:nth-of-type(4){
+  width: 45%;
+  margin: .5rem;
+} */
+
+/* .dashboard .edit_movie .control:nth-of-type(5){
+  width: 90%;
+} */
+
+/* .dashboard .edit_movie .control:nth-of-type(6){
+  width: 90%;
+} */
+
+/* .dashboard .edit_movie .control label{
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  margin-top: .5rem;
+} */
+
+/* .dashboard .edit_movie .control  input[type='text'],
+.dashboard .edit_movie .control  select,
+.dashboard .edit_movie .control  textarea{
+  width: 30rem;
+  height:3rem;
+  outline: none;
+  border: 1px solid var(--grey-light);
+  color: var(--grey-dark);
+  background-color: var(--color-4);
+  text-transform: none;
+  margin: .5rem;
+  padding: 0 1rem;
+  border-radius: 1.7rem;
+  font-family: inherit;
+} */
+
+/* .dashboard .edit_movie .control  input[type='text']:focus,
+.dashboard .edit_movie .control  select:focus,
+.dashboard .edit_movie .control  textarea:focus{
+  border: 1px solid var(--primay-color);
+} */
+
+/* .dashboard .edit_movie .control  textarea{
+  resize: none;
+  width: 100%;
+  height: 40rem;
+  padding: 1rem;
+} */
+
+/* .dashboard .edit_movie .control  textarea label{
+  text-align: left;
+  background-color: pink;
+} */
+
+/* .dashboard .edit_movie .btn_add{
+  background-color: var(--primay-color);
+  color:var(--color-1)
+} */
+
+/* 
+=================================
+INSIGHT - DASHBOARD
+=================================
+*/
+.dashboard .insight-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.dashboard .insight-list > .insight-box{
+  margin: 2rem 2rem;
+  flex: 0 0 25%;
+}
+
+.dashboard .insight-list > .insight-box > .boxes{
+  width: 20rem;
+  height: 20rem;
+  margin: auto;
+  border-radius: 2rem;
+
+}
+
+.dashboard .insight-list > .insight-box > .boxes > h4{
+  color: var(--grey-dark);
+  font-size: 2.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-top: 4rem;
+}
+
+.dashboard .insight-list > .insight-box > .boxes > h2{
+  color: var(--grey-md);
+  font-size: 4rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  /* padding-top: 4rem; */
+}
+
+/* colors */
+.dashboard .insight-list > .insight-box:first-child >:first-child{
+  background-color: var(--insight-1);
+}
+
+.dashboard .insight-list > .insight-box:nth-child(2) >:first-child{
+  background-color: var(--insight-2);
+}
+
+.dashboard .insight-list > .insight-box:nth-child(3) >:first-child{
+  background-color: var(--insight-3);
+}
+.dashboard .insight-list > .insight-box:nth-child(4) >:first-child{
+  background-color: var(--insight-4);
+}
+.dashboard .insight-list > .insight-box:nth-child(5) >:first-child{
+  position: relative;
+  background-color: var(--insight-5);
+}
+.dashboard .insight-list > .insight-box:last-child >:first-child{
+  position: relative;
+  background-color: var(--insight-6);
+}
+
+.dashboard .insight-list > .insight-box:nth-child(5) >:first-child > .fas,
+.dashboard .insight-list > .insight-box:last-child >:first-child > .fas{
+  font-size: 4rem;
+  position: absolute;
+  top: -19%;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+
+/* table movie lists */
+.table tbody td > .poster-img{
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--color-6);
+}
+
+.table tbody td > .fa-thumbs-down{
+  color: var(--danger-color);
+  display: block;
+}
+
+.table tbody td >.fa-thumbs-up{
+  color: var(--success-color);
+  display: block;
+}
+
+.table tbody td > .poster-img > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.table tbody td.btn_status > a.pending,
+.table tbody td.btn_status > a.refused,
+.table tbody td.btn_status > a.pending:hover,
+.table tbody td.btn_status > a.pending:active,
+.table tbody td.btn_status > a.refused:hover,
+.table tbody td.btn_status > a.refused:active{
+  background: var(--danger-color);
+  text-decoration: none;
+  color: var(--color-1);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+}
+
+
+.table tbody td.btn_status > a.approved,
+.table tbody td.btn_status > a.approved:hover,
+.table tbody td.btn_status > a.approved:active{
+  background: var(--success-color);
+  text-decoration: none;
+  color: var(--color-1);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+}
+
+/* 
+=================================
+MEMBERS - DASHBOARD
+=================================
+*/
+.trust_ok{
+  color:var(--success-color);
+  font-size: 2rem;
+}
+
+.trust_normal{
+  color:var(--grey-light);
+  font-size: 2rem;
+}
+
+.admin_btn{
+  background: var(--link-color);
+  color: var(--color-1) !important;
+  padding: 0.5rem 0.8rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.writer_btn{
+  background: var(--grey-md);
+  color: var(--color-1) !important;
+  padding: 0.5rem 0.8rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.approved_btn{
+  background: var(--success-color);
+  color: var(--color-1) !important;
+  padding: 0.5rem 0.8rem;
+  border-radius: 2rem;
+  text-decoration: none;
+}
+
+.pending_btn{
+  background: var(--danger-color);
+  color: var(--color-1) !important;
+  padding: 0.5rem 0.8rem;
+  border-radius: 2rem;
+  text-decoration: none;
+}
+

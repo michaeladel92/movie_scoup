@@ -1,0 +1,358 @@
+/* 
+=================================
+Global
+=================================
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&family=Montserrat:wght@200;400;800&family=Roboto:wght@100;400;900&display=swap");
+/*
+font-family: 'Ephesis', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto', sans-serif; 
+*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  line-height: 1.7;
+  font-family: "Roboto", "Times New Roman", serif;
+  color: var(--grey-dark);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--light-color-1);
+}
+
+:root {
+  --color-1: #ffeedb;
+  --color-2: #ffd8cc;
+  --color-3: #ffbd9b;
+  --color-6: #cdf2ca;
+  --color-7: #ffdefa;
+  --color-8: #ffc898;
+  --insight-1: #ffadad;
+  --insight-2: #ffd6a5;
+  --insight-3: #fdffb6;
+  --insight-4: #caffbf;
+  --insight-5: #9bf6ff;
+  --insight-6: #a0c4ff;
+  --primay-color: #0a1d37;
+  --light-color-1: #f9f3df;
+  --grey-dark: #333;
+  --grey-md: #4a4a4a;
+  --grey-light: #8f8f8f;
+  --link-color: #1897c2;
+  --danger-color: #df4759;
+  --success-color: #4bb543;
+  --default-shadow: 0 1px 5px 0.5px var(--grey-light);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li {
+  font-family: "Montserrat", "Segoe UI", Tahoma;
+}
+
+/* Remove Number Arrow */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* SELECT Remove Arrow  */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+}
+
+.link,
+.link:active,
+.link:hover,
+.link:visited {
+  color: var(--link-color);
+}
+
+.loading {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+  background-color: var(--color-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.loading.show {
+  opacity: 1;
+  z-index: 1000;
+}
+
+.loading.show span {
+  width: 10rem;
+  height: 10rem;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1rem solid var(--primay-color);
+  border-right-color: transparent;
+  position: relative;
+  animation: rotate 2s linear infinite;
+}
+
+.loading.show span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate(-10%, -10%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1rem solid var(--primay-color);
+  box-sizing: content-box;
+  border-right-color: transparent;
+  animation: rotateA 2s ease infinite 0.5s;
+}
+
+/* dashboard notifications */
+.notifications_global_api {
+  visibility: visible;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  transform: translateY(100%);
+  background: var(--primay-color);
+  width: auto;
+  height: 5rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem 0 0;
+  font-size: 1.4rem;
+  color: var(--color-1);
+  box-shadow: var(--default-shadow);
+  z-index: 2;
+}
+
+.notifications_global_api.show {
+  transform: translateY(0);
+}
+
+.notifications_global_api.show.success {
+  transform: translateY(0);
+  background: var(--success-color);
+  transition: transform 0.5s;
+}
+
+.notifications_global_api.show.error {
+  transform: translateY(0);
+  background: var(--danger-color);
+  transition: transform 0.5s;
+}
+
+/* 
+=================================
+Nav
+=================================
+*/
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primay-color);
+  height: 10rem;
+  position: relative;
+}
+
+.navbar .logo-container {
+  width: 8rem;
+  height: 8rem;
+  margin-left: 2rem;
+  position: relative;
+}
+
+.navbar .logo-container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.navbar .logo-container figcaption .logo-text {
+  font-size: 3rem;
+  position: absolute;
+  top: 54%;
+  left: 35%;
+  width: auto;
+  white-space: nowrap;
+  font-family: "Ephesis", cursive;
+  color: #fff;
+  letter-spacing: 0.1rem;
+  line-height: 1;
+  color: var(--color-6);
+}
+
+.navbar .logo-container figcaption .logo-text::first-letter {
+  font-size: 4rem;
+}
+
+.navbar .menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5rem;
+  font-size: 2rem;
+}
+
+.navbar .menu li {
+  margin: 0 1rem;
+  padding: 0.5rem;
+}
+
+.navbar .menu li a {
+  text-decoration: none;
+  color: var(--color-3);
+  text-transform: uppercase;
+  font-weight: 800;
+  transition: color 0.3s;
+}
+
+.navbar .menu li a:hover,
+.navbar .menu li a:active,
+.navbar .menu li a.active {
+  color: var(--color-1);
+}
+
+.navbar .menu .sort-list {
+  position: relative;
+}
+
+.navbar .menu .sort-list .inner-menu {
+  display: none;
+}
+
+.navbar .menu .sort-list > a {
+  position: relative;
+}
+
+.navbar .menu .sort-list > a > i.fa-sort-down {
+  position: absolute;
+  top: 0;
+}
+
+.navbar .menu .sort-list > a > i.fa-sort-up {
+  position: absolute;
+  top: 27%;
+}
+
+.navbar .menu .sort-list .inner-menu.active {
+  display: block;
+  list-style-type: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: auto;
+  background-color: var(--primay-color);
+  padding: 2rem;
+  z-index: 1001;
+}
+
+.navbar .menu .sort-list .inner-menu li:not(:last-of-type) {
+  border-bottom: 1px dashed var(--color-1);
+}
+
+/* Global notifications */
+.global-notifications {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: var(--primay-color);
+  font-size: 2rem;
+  padding: 0.5rem 2rem;
+  color: var(--color-1);
+  z-index: -1;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: var(--default-shadow);
+  animation: notificationSlide 8s ease-in both;
+}
+
+.global-notifications.error {
+  background-color: var(--danger-color);
+}
+
+.global-notifications.success {
+  background-color: var(--success-color);
+}
+
+
+
+/* 
+=================================
+FRAMEWORK
+=================================
+*/
+@keyframes notificationSlide {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  5% {
+    transform: translate(-50%, 100%);
+  }
+  95% {
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    transform: translate(-50%, -5%);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateA {
+  100% {
+    transform: translate(-10%, -10%) rotate(360deg);
+  }
+}

@@ -1,0 +1,229 @@
+/* 
+=================================
+HOME | MOVIE PAGE
+=================================
+*/
+.movie_details .movie_container{
+  margin: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+/* content */
+.movie_details .movie_container .movie_content{
+  flex: 0 0 74%;
+  max-width: 74%;
+  background-color: var(--insight-2);
+  box-shadow: var(--default-shadow);
+  padding: 2rem;
+}
+
+.movie_details .movie_container .movie_content .title{
+  font-size: 3.5rem;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--primay-color);
+  text-transform: uppercase;
+}
+
+.movie_details .movie_container .movie_content .list{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  color: var(--grey-dark);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+  border-bottom: .1rem solid rgba(0,0,0,.1);
+}
+
+.movie_details .movie_container .movie_content .list > li > span{
+  font-weight: bold;
+}
+
+.movie_details .movie_container .movie_content .list > li >a{
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.movie_details .movie_container .movie_content .list > li > .trust_ok{
+  color: var(--success-color);
+  font-size: 1.2rem;
+}
+
+.movie_details .movie_container .movie_content .publisher_content{
+  font-size: 2rem;
+  color: var(--grey-dark);
+}
+
+.movie_details .movie_container .movie_content .publisher_content img{
+  object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* poster */
+.movie_details .movie_container .poster{
+  flex: 0 0 25%;
+}
+
+.movie_details .movie_container .poster > figure{
+  width: 100%;
+  height: 100%;
+}
+
+.movie_details .movie_container .poster > figure > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.movie_details .movie_container .poster > .publish_date{
+  font-size: 1.4rem;
+  margin-left: 1rem;
+}
+.movie_details .movie_container .poster > .publish_date span{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.movie_details .movie_container .actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie_details .movie_container .actions > p{
+  margin:1rem;
+  font-size: 1.8rem;
+  color:var(--grey-md);
+}
+
+.movie_details .movie_container .actions > p > a{
+  margin: 0 1rem;
+}
+
+.movie_details .movie_container .actions > p > a.default_like{
+  color: rgb(75 181 67 / 50%);
+}
+
+.movie_details .movie_container .actions > p > a.like{
+  color: var(--success-color);
+}
+
+.movie_details .movie_container .actions > p > a.default_dislike{
+  color: rgb(223 71 89 / 50%);
+}
+
+
+.movie_details .movie_container .actions > p > a.dislike{
+  color: var(--danger-color);
+}
+
+iframe{
+  border:none;
+  outline: none;
+}
+
+/* 
+=================================
+HOME | DEFAULT PAGE
+=================================
+*/
+.home_page{
+  max-width: 90%;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.home_page .filter{
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--insight-2);
+  border-radius: 3rem;
+  margin: 2rem 0;
+}
+
+.home_page .filter input{
+  height: 3rem;
+  width: 40rem;
+  outline: none;
+  border: 1px solid var(--grey-light);
+  padding: 1rem;
+  border-radius: 2rem;
+  font-family: inherit;
+  text-transform: none;
+  color: var(--grey-dark);
+}
+/* list */
+.home_page .movie_lists{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home_page .movie_lists >*{
+  flex: 0 0 30rem;
+}
+
+.home_page .movie_lists .boxes figure{
+  width: 30rem;
+  height: 45rem;
+  overflow: hidden;
+  background-color: black;
+}
+
+.home_page .movie_lists .boxes figure a img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all .5s;
+}
+
+.home_page .movie_lists .boxes figure a:hover img{
+  transform: scale(1.1);
+  opacity: .3;
+}
+
+.home_page .movie_lists .boxes figcaption{
+  font-family: 'Montserrat', sans-serif;
+  color: var(--grey-dark);
+  font-weight: bold;
+  /* text-align: center; */
+  margin: 1rem;
+}
+
+.home_page .movie_lists .boxes figcaption small{
+  line-height: 1;
+}
+.home_page .movie_lists .boxes figcaption h3{
+  font-size: 1.7rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.home_page .movie_lists .boxes figcaption h3 a{
+  color: var(--link-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+.home_page .movie_lists .boxes figcaption h4{
+  font-size: 1.1rem;
+}
+
+.home_page .movie_lists .boxes figcaption h4 a{
+  color: var(--link-color);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.home_page .movie_lists .boxes figcaption .trust_ok{
+  color: var(--success-color);
+  font-size: 1.2rem;
+}
